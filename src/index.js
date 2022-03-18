@@ -1,4 +1,10 @@
-import ReactDOM from "react-dom";
-import CreateForm from "./create_form";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import "./index.css"
 
-ReactDOM.render(<CreateForm/>, document.getElementById("root"));
+import { Survey } from './elements/survey'
+
+ReactDOM.render(
+    <Survey/>,
+    document.getElementById('root')
+);

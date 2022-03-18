@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+}
+
+.survey {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(255, 216, 158);
+    font-family:Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.field {
+    display: flex;
+    background-color: blanchedalmond;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: medium;
+
+}
+
+.surveyButton {
+    color: red;
+    background-color: rgb(250, 187, 187);
+    min-width: 50px;
+    float: right;
+    padding: 1px;
+    margin-left: 10px;
+}
+
+.surveyButton:hover {
+    color: green;
+    background-color: rgb(217, 255, 160);
+}
+
+.field input {
+    background-color: blanchedalmond;
+    font-size: medium;
+    border-style: hidden;
+    width: 675px;
+}
+
+.field input:focus {
+    
+    outline: none;
+}
+
+.title {
+    margin-bottom: 20px;
+    background-color: rgb(255, 216, 158);
+    font-family: "Comic Sans MS", cursive;
+    font-size: x-large;
+}
+
+.nameField {
+    margin-bottom: 10px;
+}
+
+.nameField input {
+    font-size: large;
+}
