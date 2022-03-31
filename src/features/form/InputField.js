@@ -1,4 +1,3 @@
-import { nothing } from 'immer';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,7 +5,7 @@ import { addQuestion } from "./formSlice";
 
 export const InputField = (props) => {
     const [insertValue, setInsertValue] = useState("")
-    const [questionType, setQuestionType] = useState("")
+    const [questionType, setQuestionType] = useState(0)
 
     const dispatch = useDispatch();
 
