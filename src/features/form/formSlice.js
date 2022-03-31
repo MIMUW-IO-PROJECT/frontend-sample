@@ -34,7 +34,8 @@ const formSlice = createSlice({
 		removeQuestion: {
 			reducer(state, action) {
 				const { id } = action.payload;
-				return state.questions.filter((q_id) => q_id !== id);
+				state.questions = state.questions.filter((item) => item.id !== id);
+				return state;
 			},
 		},
 	},
