@@ -21,7 +21,7 @@ export const InputField = (props) => {
 
     const onSaveQuestionClicked = () => {
         if(insertValue && questionTypes) {
-            dispatch(addQuestion(insertValue, questionType, ""))
+            dispatch(addQuestion(questionType, insertValue, ""))
             setInsertValue("")
         }
     }

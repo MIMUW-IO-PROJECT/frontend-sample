@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const NameField = (props) => {
-    const [nameValue, setNameValue] = useState("")
+    // props ={ nameValue, setNameValue }
 
     return (
         <div className='field nameField'>
@@ -10,8 +10,8 @@ export const NameField = (props) => {
                 id='nameInput'
                 type="text"
                 placeholder='Enter survey name...'
-                value={nameValue}
-                onChange={(newValue) => setNameValue(newValue.target.value)}
+                value={props.nameValue}
+                onChange={(newValue) => props.setNameValue(newValue.target.value)}
             />
         </div>
     )

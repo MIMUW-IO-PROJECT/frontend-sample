@@ -10,7 +10,7 @@ export const QuestionsList = () => {
 	const renderQuestion = questions.map((question) => {
 		return (
 			<div className="field" key={question.id}>
-				{question.text}
+				{question.question}
 				<button
 					className="surveyButton"
 					onClick={() => dispatch(removeQuestion({id : question.id}))}

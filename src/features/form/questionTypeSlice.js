@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
     {id: 0 , type: "OPEN"},
     {id: 1 , type: "MULTI"},
-    {id: 2 , type: "CLOSED"}
+    {id: 2 , type: "SINGLE"}
 ]
 
 const questionTypeSlice = createSlice({

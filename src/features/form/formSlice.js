@@ -5,9 +5,9 @@ const initialState = {
 	questions: [
 		// {
 		//     id : 1,
-		//     text : "",
 		//     type : "OPEN",
-		//     possible_answers : ""
+		//     qestion : "",
+		//     answers : ""
 		// }
 	],
 };
@@ -20,13 +20,13 @@ const formSlice = createSlice({
 			reducer(state, action) {
 				state.questions.push(action.payload);
 			},
-			prepare(text, type, possible_answers) {
+			prepare(type, question, answers) {
 				return {
 					payload: {
 						id: nanoid(),
-						text,
 						type,
-						possible_answers,
+						question,
+						answers,
 					},
 				};
 			},
@@ -38,9 +38,16 @@ const formSlice = createSlice({
 				return state;
 			},
 		},
+		setName: {
+			reducer(state, action) {
+				const { name } = action.payload;
+				state.name = name;
+				return state;
+			}
+		}
 	},
 });
 
-export const { addQuestion, removeQuestion } = formSlice.actions;
+export const { addQuestion, removeQuestion, setName } = formSlice.actions;
 
 export default formSlice.reducer;
