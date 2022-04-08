@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import store from "./app/store";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { CreateForm } from "./features/form/CreateForm";
+import { Provider } from 'react-redux';
+import { createReducer } from './reducer';
 
-function start() {
-	ReactDOM.render(
-		<div className="survey">
-			<div className="title field">Stwórz własną ankietę!</div>
-			<Provider store={store}>
-				<CreateForm/>
-			</Provider>
-		</div>,
-		document.getElementById("root")
-	);
-}
+import { createStore } from 'redux';
 
-start();
+import "./index.css"
+
+import { Survey } from './features/survey'
+
+const store = createStore(createReducer())
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Survey />
+    </Provider>,
+
+    document.getElementById('root')
+);
