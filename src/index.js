@@ -9,12 +9,24 @@ import { createStore } from 'redux';
 import "./index.css"
 
 import { Survey } from './features/survey'
+import { LinkPage } from './features/link';
+
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+  } from "react-router-dom";
 
 const store = createStore(createReducer())
 
 ReactDOM.render(
     <Provider store={store}>
-        <Survey />
+        <Router>
+            <Routes>
+                <Route path="/" element={<Survey />}/>
+                <Route path="/display_link" element={<LinkPage/>}/>
+            </Routes>
+        </Router>
     </Provider>,
 
     document.getElementById('root')
