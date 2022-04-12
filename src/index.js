@@ -23,7 +23,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Routes>
-                <Route path="/create_form" element={<Survey />}/>
+                <Route path="/frontend-sample" element={<Survey />}/>
                 <Route path="/display_link" element={<LinkPage/>}/>
             </Routes>
         </Router>
