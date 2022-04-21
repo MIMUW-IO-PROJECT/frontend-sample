@@ -1,28 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-import { setNameValue } from './actions';
-import { nameSelector } from './selectors';
+import { setNameValue } from "./actions";
+import { nameSelector } from "./selectors";
 
 export const NameField = () => {
-
     const nameValue = useSelector(nameSelector);
     const dispatch = useDispatch();
     const onFieldChange = (newValue) => {
         dispatch(setNameValue(newValue));
-    }
+    };
 
     return (
-        <div className='field nameField'>
+        <div className="field nameField">
             <input
                 autoFocus
-                id='nameInput'
+                id="nameInput"
                 type="text"
-                placeholder='Enter survey name...'
+                placeholder="Enter survey name..."
                 value={nameValue}
                 onChange={(newValue) => onFieldChange(newValue.target.value)}
             />
         </div>
-    )
-}
+    );
+};

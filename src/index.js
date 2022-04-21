@@ -1,33 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Provider } from 'react-redux';
-import { createReducer } from './reducer';
+import { Provider } from "react-redux";
+import { createReducer } from "./reducer";
 
-import { createStore } from 'redux';
+import { createStore } from "redux";
 
-import "./index.css"
+import "./index.css";
 
-import { Survey } from './features/survey'
-import { LinkPage } from './features/link';
+import { Survey } from "./features/survey";
+import { LinkPage } from "./features/link";
 
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-  } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const store = createStore(createReducer())
+const store = createStore(createReducer());
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Routes>
-                <Route path="/frontend-sample" element={<Survey />}/>
-                <Route path="/display_link" element={<LinkPage/>}/>
+                <Route path="/frontend-sample" element={<Survey />} />
+                <Route path="/display_link" element={<LinkPage />} />
             </Routes>
         </Router>
     </Provider>,
 
-    document.getElementById('root')
+    document.getElementById("root")
 );

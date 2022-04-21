@@ -1,4 +1,4 @@
-export const questionsSelector = state => state.questions;
+export const questionsSelector = (state) => state.questions;
 
 export const answerSelector = (state, index, ans_index) =>
     state.questions[index].answers[ans_index];
