@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewAnswer } from '../../../actions';
-import { allAnswersSelector, answerSelector } from '../../../selectors';
+import { allAnswersSelector } from '../../../selectors';
+import PropTypes from 'prop-types';
 
 export const InsertField = (props) => {
     const [insertValue, setInsertValue] = useState("")
@@ -66,3 +67,8 @@ export const InsertField = (props) => {
         </div>
     )
 }
+
+InsertField.propTypes = {
+    index: PropTypes.string,
+    type: PropTypes.string,
+};

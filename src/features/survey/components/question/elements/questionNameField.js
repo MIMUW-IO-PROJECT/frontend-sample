@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewQuestionName } from '../../../actions';
 import { questionNameSelector } from '../../../selectors';
+import PropTypes from 'prop-types';
 
 export const QuestionNameField = (props) => {
     const dispatch = useDispatch();
@@ -29,3 +29,7 @@ export const QuestionNameField = (props) => {
         </div>
     );
 }
+
+QuestionNameField.propTypes = {
+    index: PropTypes.string,
+};

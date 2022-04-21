@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setNameValue } from './actions';
 import { nameSelector } from './selectors';
 
-export const NameField = (props) => {
+export const NameField = () => {
 
     const nameValue = useSelector(nameSelector);
     const dispatch = useDispatch();

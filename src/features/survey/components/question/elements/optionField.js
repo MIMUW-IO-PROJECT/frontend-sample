@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAnswer } from '../../../actions';
 import { useSelector } from 'react-redux';
 import { answerSelector } from '../../../selectors';
+import PropTypes from 'prop-types';
 
 export const OptionField = (props) => {
 
@@ -21,3 +22,9 @@ export const OptionField = (props) => {
         </div>
     )
 }
+
+OptionField.propTypes = {
+    index: PropTypes.string,
+    type: PropTypes.string,
+    ans_index: PropTypes.string,
+};

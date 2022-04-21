@@ -1,6 +1,7 @@
+import React from 'react';
 import { useSelector } from "react-redux"
 
-export const MassiveJson = (props) => {
+export const MassiveJson = () => {
     const curState = useSelector(state => state)
     console.log(curState)
 

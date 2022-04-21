@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { questionsSelector } from "../selectors"
 import { MassiveJson } from "./massiveJson";
@@ -15,6 +16,7 @@ export const Form = () => {
         <div>
             {questions.map((question, index) => (
                 <Question
+                    key={index}
                     index={index}
                     question={question.question}
                     type={question.type}

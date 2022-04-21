@@ -1,10 +1,10 @@
-import { useState } from "react";
-
+import React from "react";
 import { OptionField } from "./elements/optionField";
 import { InsertField } from "./elements/insertField";
 import { QuestionNameField } from "./elements/questionNameField";
 import { changeQuestionType, deleteAllAnswers, deleteQuestion } from "../../actions";
 import { useDispatch } from "react-redux";
+import PropTypes from 'prop-types';
 
 export const Question = (props) => {
 
@@ -51,6 +51,7 @@ export const Question = (props) => {
             />
             {options.map((answer, index) => (
                 <OptionField
+                    key={index}
                     ans_index={index}
                     index={props.index}
                     value={answer}
@@ -64,3 +65,9 @@ export const Question = (props) => {
 
     );
 }
+
+Question.propTypes = {
+    type: PropTypes.string,
+    index: PropTypes.string,
+    answers: PropTypes.array,
+  };

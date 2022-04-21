@@ -21,11 +21,12 @@ export const questionsReducer = (state = initialState, action) => {
         case 'DELETE_ANSWER':
             newState[action.index].answers.splice(action.ans_index, 1);
             return newState; 
-        case 'CHANGE_QUESTION_TYPE':
+        case 'CHANGE_QUESTION_TYPE': {
             let new_question = newState[action.index];
             new_question.type = action.questionType;
             newState[action.index] = new_question
             return newState;
+        }
         case 'DELETE_ALL_ANSWERS':
             newState[action.index].answers.length = 0
             return newState;
