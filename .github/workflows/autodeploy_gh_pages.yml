@@ -13,4 +13,4 @@ jobs:
             - name: Predeploy
               run: npm run predeploy
             - name: Deploy
-              run: npm deploy
+              run: npm run deploy
