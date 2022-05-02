@@ -10,7 +10,6 @@ export const Form = () => {
     const dispatch = useDispatch();
 
     const random_number = Math.random();
-    console.log(random_number);
 
     return (
         <div>

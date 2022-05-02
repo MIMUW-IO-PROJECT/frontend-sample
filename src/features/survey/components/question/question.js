@@ -40,7 +40,7 @@ export const Question = (props) => {
                     Pytanie #{props.index + 1}
                 </label>
                 <select style={{ marginRight: "5px" }} onChange={handleChange}>
-                    <option value={"CLOSED"}>CLOSED</option>
+                    <option value={"SINGLE"}>SINGLE</option>
                     <option selected value={"OPEN"}>
                         OPEN
                     </option>
