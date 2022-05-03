@@ -41,7 +41,7 @@ export const Question = (props) => {
                 </label>
                 <select style={{ marginRight: "5px" }} onChange={handleChange}>
                     <option value={"SINGLE"}>SINGLE</option>
-                    <option selected value={"OPEN"}>
+                    <option defaultValue={"OPEN"}>
                         OPEN
                     </option>
                     <option value={"MULTI"}>MULTI</option>

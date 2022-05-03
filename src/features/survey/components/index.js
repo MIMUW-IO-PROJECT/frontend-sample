@@ -16,7 +16,7 @@ export const Form = () => {
             {questions.map((question, index) => (
                 <Question
                     key={index}
-                    index={index}
+                    index={String(index)}
                     question={question.question}
                     type={question.type}
                     answers={question.answers}
