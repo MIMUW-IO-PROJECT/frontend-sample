@@ -1,4 +1,28 @@
-# Getting Started with Create React App
+# Frontend
+
+## Development
+
+Aby uruchomić linter należy wykonać w terminalu polecenie:
+
+```
+npm run eslint
+```
+
+Aby sprawdzić, czy kod jest właściwie sformatowany należy wykonać w terminalu polecenie:
+
+```
+npm run prettier-check
+```
+
+Aby automatycznie sformatować kod należy wykonać w terminalu polecenie:
+
+```
+npm run prettier-format
+```
+
+# Default React readme
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

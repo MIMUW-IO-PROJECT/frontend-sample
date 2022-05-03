@@ -10,14 +10,13 @@ export const Form = () => {
     const dispatch = useDispatch();
 
     const random_number = Math.random();
-    console.log(random_number);
 
     return (
         <div>
             {questions.map((question, index) => (
                 <Question
                     key={index}
-                    index={index}
+                    index={String(index)}
                     question={question.question}
                     type={question.type}
                     answers={question.answers}
