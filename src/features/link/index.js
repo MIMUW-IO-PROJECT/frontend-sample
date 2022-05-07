@@ -2,7 +2,6 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { useState } from "react";
 
 export const LinkPage = function () {
     const { formId } = useLocation();
@@ -10,7 +9,6 @@ export const LinkPage = function () {
     // TODO! pobieranie z backendu i ustawianie 'form'
     // to na razie działa i symuluje czekanie
     const form = useSelector((state) => state);
-    const [formStats, setFormStats] = useState([]);
     const getForm = async () => {
         await new Promise((r) => setTimeout(r, 1000));
     };
@@ -62,9 +60,8 @@ export const LinkPage = function () {
     // const endDate = form.endDate;
     const fillLink = generateLinkFillPage();
     const stats = generateFormStatistics();
-    setFormStats(stats);
     console.log(form);
-    console.log(formStats);
+    console.log(stats);
     return (
         <div className="survey">
             <div className="title field">Pomyślnie utworzono nową ankietę!</div>
