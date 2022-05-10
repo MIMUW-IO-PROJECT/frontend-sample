@@ -1,18 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-
 export const LinkPage = function () {
-    const { formId } = useLocation();
-
-    // TODO! pobieranie z backendu i ustawianie 'form'
-    // to na razie działa i symuluje czekanie
-    const form = useSelector((state) => state);
-    const getForm = async () => {
-        await new Promise((r) => setTimeout(r, 1000));
-    };
-    getForm();
+    const form = useLocation().state.form;
+    const formId = form._id
 
     // TODO! generowanie linku
     const generateLinkFillPage = () => {

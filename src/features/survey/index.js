@@ -16,7 +16,7 @@ export const Survey = () => {
             .post(backendUrl + createForm, { ...form })
             .then((res) => {
                 console.log(res);
-                navigate("/display_link", { state: { formId: JSON.stringify(res.data) } });
+                navigate("/display_link", { state: { form: res.data } });
             })
             .catch((err) => {
                 console.log(err);
