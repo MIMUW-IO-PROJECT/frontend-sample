@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 export const LinkPage = function () {
     const form = useLocation().state.form;
-    const formId = form._id
+    const formId = form._id;
 
     // TODO! generowanie linku
     const generateLinkFillPage = () => {
