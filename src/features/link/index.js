@@ -22,7 +22,7 @@ export const LinkPage = function () {
 
         // inicjujemy licznik zerami
         let typesCount = Object.fromEntries(
-            Object.entries(types).map(([key]) => [key, 0])
+            Object.keys(types).map((key) => [key, 0])
         );
 
         // zliczamy pytania według typu
