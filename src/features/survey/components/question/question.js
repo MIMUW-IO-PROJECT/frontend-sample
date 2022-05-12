@@ -37,11 +37,11 @@ export const Question = (props) => {
                         marginRight: "20px",
                     }}
                 >
-                    Pytanie #{props.index + 1}
+                    Pytanie #{props.index}
                 </label>
                 <select style={{ marginRight: "5px" }} onChange={handleChange}>
-                    <option value={"SINGLE"}>SINGLE</option>
                     <option defaultValue={"OPEN"}>OPEN</option>
+                    <option value={"SINGLE"}>SINGLE</option>
                     <option value={"MULTI"}>MULTI</option>
                 </select>
                 <button

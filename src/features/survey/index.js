@@ -24,6 +24,10 @@ export const Survey = () => {
             });
     };
 
+    const changeRoute = () => {
+        navigate("/survey_answer");
+    };
+
     return (
         <div className="survey">
             <div className="title field">Stwórz własną ankietę!</div>
@@ -34,6 +38,7 @@ export const Survey = () => {
             <EndDateField />
             <Form />
             <button onClick={postForm}>Dalej</button>
+            <button onClick={changeRoute}>Debug rozwiąż</button>
         </div>
     );
 };
