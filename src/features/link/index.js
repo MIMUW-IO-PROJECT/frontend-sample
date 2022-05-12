@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { types } from "../../questionTypes";
 
 export const LinkPage = function () {
     const form = useLocation().state.form;
@@ -13,51 +14,55 @@ export const LinkPage = function () {
 
     const generateFormStatistics = () => {
         let stats = [];
-        stats.push({
-            nazwa: "liczba pytań: ",
-            wartosc : form.questions.length,
-        })
 
-        let typesCount = { "OPEN": 0, "SINGLE": 0, "MULTI": 0 };
-        for (let i in form.questions) {
-            let question = form.questions[i];
+        stats.push({
+            name: "liczba pytań: ",
+            value: form.questions.length,
+        });
+
+        // inicjujemy licznik zerami
+        let typesCount = Object.fromEntries(
+            Object.entries(types).map(([key]) => [key, 0])
+        );
+
+        // zliczamy pytania według typu
+        for (const question of form.questions) {
             typesCount[question["type"]] += 1;
         }
 
-        stats.push({
-            nazwa: "liczba pytań typu OPEN: ",
-            wartosc : typesCount["OPEN"],
-        })
-        stats.push({
-            nazwa: "liczba pytań typu SINGLE: ",
-            wartosc : typesCount["SINGLE"],
-        })
-        stats.push({
-            nazwa: "liczba pytań typu MULTI: ",
-            wartosc : typesCount["MULTI"],
-        })
+        // dodajemy zawartość licznika do statystyk
+        stats.push(
+            ...Object.values(types).map((type) => {
+                return {
+                    name: `liczba pytań typu ${type}: `,
+                    value: typesCount[type],
+                };
+            })
+        );
 
         let wordCount = 0;
-        for (let i in form.questions) {
-            let question = form.questions[i];
-            wordCount += question.question.length;
+
+        for (const question of form.questions) {
+            wordCount += question.question.split(/\s+/gm).length;
         }
 
         stats.push({
-            nazwa: "liczba słów: ",
-            wartosc : wordCount,
-        })
+            name: "liczba słów w pytaniach: ",
+            value: wordCount,
+        });
 
         return stats;
     };
 
     const nameValue = form.name;
     const endDate = form.endDate;
-    // const endDate = form.endDate;
     const fillLink = generateLinkFillPage();
     const stats = generateFormStatistics();
+
+    // TODO: usunąć jak nie będzie już potrzebne
     console.log(form);
     console.log(stats);
+
     return (
         <div className="survey">
             <div className="title field">Pomyślnie utworzono nową ankietę!</div>
@@ -89,7 +94,9 @@ export const LinkPage = function () {
                 </span>
             </div>
             <div className="field formStats">
-                {stats.map(b => <div key={b.nazwa}>{b.nazwa} {b.wartosc}</div>)}
+                {stats.map((b) => (
+                    <div key={b.name}>{`${b.name} ${b.value}`}</div>
+                ))}
             </div>
         </div>
     );
