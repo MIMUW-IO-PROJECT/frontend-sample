@@ -13,24 +13,29 @@ export const LinkPage = function () {
 
     const generateFormStatistics = () => {
         let stats = [];
-        stats = [
-            ...stats,
-            {
-                stat_id: stats.length + 1,
-                "liczba pytań: ": form.questions.length,
-            },
-        ];
+        stats.push({
+            nazwa: "liczba pytań: ",
+            wartosc : form.questions.length,
+        })
 
-        let typesCount = { OPEN: 0, SINGLE: 0, MULTI: 0 };
+        let typesCount = { "OPEN": 0, "SINGLE": 0, "MULTI": 0 };
         for (let i in form.questions) {
             let question = form.questions[i];
             typesCount[question["type"]] += 1;
         }
 
-        stats = [
-            ...stats,
-            { stat_id: stats.length + 1, "liczba pytań: ": typesCount },
-        ];
+        stats.push({
+            nazwa: "liczba pytań typu OPEN: ",
+            wartosc : typesCount["OPEN"],
+        })
+        stats.push({
+            nazwa: "liczba pytań typu SINGLE: ",
+            wartosc : typesCount["SINGLE"],
+        })
+        stats.push({
+            nazwa: "liczba pytań typu MULTI: ",
+            wartosc : typesCount["MULTI"],
+        })
 
         let wordCount = 0;
         for (let i in form.questions) {
@@ -38,10 +43,10 @@ export const LinkPage = function () {
             wordCount += question.question.length;
         }
 
-        stats = [
-            ...stats,
-            { stat_id: stats.length + 1, "liczba słów: ": wordCount },
-        ];
+        stats.push({
+            nazwa: "liczba słów: ",
+            wartosc : wordCount,
+        })
 
         return stats;
     };
@@ -82,6 +87,9 @@ export const LinkPage = function () {
                 <span autoFocus id="endDateInput" type="text">
                     {endDate}
                 </span>
+            </div>
+            <div className="field formStats">
+                {stats.map(b => <div key={b.nazwa}>{b.nazwa} {b.wartosc}</div>)}
             </div>
         </div>
     );
