@@ -9,11 +9,9 @@ export const LinkPage = function () {
     const form = useLocation().state.form;
     const formId = form._id;
 
-    // TODO! generowanie linku
     const generateLinkFillPage = () => {
-        return `link_do_wypełniania_${formId}`;
+        return `${window.location.origin}/survey_answer/${formId}`;
     };
-    // ---------
 
     const generateFormStatistics = () => {
         let stats = [];
@@ -62,10 +60,6 @@ export const LinkPage = function () {
     const fillLink = generateLinkFillPage();
     const stats = generateFormStatistics();
 
-    // TODO: usunąć jak nie będzie już potrzebne
-    console.log(form);
-    console.log(stats);
-
     const columns = [
         { title: "Nazwa statystyki", field: "name" },
         { title: "Wartość", field: "value" },
@@ -82,9 +76,9 @@ export const LinkPage = function () {
 
             <div className="title field">link do wypełniania</div>
             <div className="field linkField">
-                <span autoFocus id="linkDisplay" type="text">
+                <a href={fillLink} id="linkDisplay" type="text">
                     {fillLink}
-                </span>
+                </a>
                 <button
                     id="linkCopyButton"
                     onClick={() => navigator.clipboard.writeText(fillLink)}
