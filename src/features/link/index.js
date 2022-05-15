@@ -1,6 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { types } from "../../questionTypes";
+import MaterialTable from "material-table";
+
+import "./link.css";
 
 export const LinkPage = function () {
     const form = useLocation().state.form;
@@ -63,6 +66,11 @@ export const LinkPage = function () {
     console.log(form);
     console.log(stats);
 
+    const columns = [
+        { title: "Nazwa statystyki", field: "name" },
+        { title: "Wartość", field: "value" },
+    ];
+
     return (
         <div className="survey">
             <div className="title field">Pomyślnie utworzono nową ankietę!</div>
@@ -93,10 +101,20 @@ export const LinkPage = function () {
                     {endDate}
                 </span>
             </div>
-            <div className="field formStats">
-                {stats.map((b) => (
-                    <div key={b.name}>{`${b.name} ${b.value}`}</div>
-                ))}
+
+            <div className="stats_table">
+                <MaterialTable
+                    style={{ width: "80%" }}
+                    title="Statystyki ankiety"
+                    data={stats}
+                    columns={columns}
+                    options={{
+                        search: true,
+                        paging: false,
+                        filtering: true,
+                        exportButton: true,
+                    }}
+                />
             </div>
         </div>
     );
