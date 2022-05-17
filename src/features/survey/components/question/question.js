@@ -9,6 +9,7 @@ import {
 } from "../../actions";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+import { types } from "../../../../questionTypes";
 
 export const Question = (props) => {
     const dispatch = useDispatch();
@@ -40,9 +41,11 @@ export const Question = (props) => {
                     Pytanie #{props.index + 1}
                 </label>
                 <select style={{ marginRight: "5px" }} onChange={handleChange}>
-                    <option value={"SINGLE"}>SINGLE</option>
-                    <option defaultValue={"OPEN"}>OPEN</option>
-                    <option value={"MULTI"}>MULTI</option>
+                    {Object.values(types).map((type) => (
+                        <option key={type} value={type}>
+                            {type}
+                        </option>
+                    ))}
                 </select>
                 <button
                     className="surveyButton"

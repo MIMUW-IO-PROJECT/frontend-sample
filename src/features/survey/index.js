@@ -13,10 +13,10 @@ export const Survey = () => {
 
     const postForm = async () => {
         axios
-            .post(backendUrl + createForm, { form })
+            .post(backendUrl + createForm, { ...form })
             .then((res) => {
                 console.log(res);
-                navigate("/display_link", { state: { formId: res.data } });
+                navigate("/display_link", { state: { form: res.data } });
             })
             .catch((err) => {
                 console.log(err);

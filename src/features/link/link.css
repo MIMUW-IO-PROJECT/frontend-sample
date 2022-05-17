@@ -1,0 +1,9 @@
+.stats_table {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
+    border-spacing: 0;
+    margin-bottom: 1em;
+}

@@ -62,6 +62,10 @@ body {
     font-size: large;
 }
 
+.linkField {
+    justify-content: space-between;
+}
+
 .textarea {
     display: block;
     margin-left: auto;
