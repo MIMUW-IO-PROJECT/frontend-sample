@@ -30,7 +30,6 @@ export const Survey = () => {
                 <NameField />
             </div>
             <div className="survey">
-                
                 {/* <div className="title field">
                     Data końca ankiety w formacie RRRR-MM-DD.
                 </div> */}

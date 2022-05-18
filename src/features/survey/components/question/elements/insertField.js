@@ -54,7 +54,9 @@ export const InsertField = (props) => {
                     className="new-answer-input"
                     placeholder="Dodaj kolejną odpowiedź..."
                     value={insertValue}
-                    onChange={(newValue) => setInsertValue(newValue.target.value)}
+                    onChange={(newValue) =>
+                        setInsertValue(newValue.target.value)
+                    }
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
                             handleNewAnswer();
@@ -65,7 +67,6 @@ export const InsertField = (props) => {
                     Dodaj
                 </button>
             </div>
-            
         </div>
     );
 };

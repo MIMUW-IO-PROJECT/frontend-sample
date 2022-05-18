@@ -33,11 +33,11 @@ export const Question = (props) => {
                             display: "inline-block",
                         }}
                     >
-                        <label 
-                        style={{
-                            "margin-right": "10px",
-                        }}>
-                        
+                        <label
+                            style={{
+                                "margin-right": "10px",
+                            }}
+                        >
                             Pytanie {props.index + 1}
                         </label>
                         <select className="type-select" onChange={handleChange}>
@@ -47,15 +47,14 @@ export const Question = (props) => {
                                 </option>
                             ))}
                         </select>
-                        </span>
-                    </div>
-                    <button
-                        className="surveyButton"
-                        onClick={() => dispatch(deleteQuestion(props.index))}
-                    >
+                    </span>
+                </div>
+                <button
+                    className="surveyButton"
+                    onClick={() => dispatch(deleteQuestion(props.index))}
+                >
                     X
-                    </button>
-                
+                </button>
             </div>
 
             <QuestionNameField index={props.index} />

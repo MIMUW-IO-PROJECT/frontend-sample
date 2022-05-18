@@ -9,7 +9,10 @@ body {
     font-family: "Helvetica", sans-serif;
 }
 
-html, body, #wrapper, #root {
+html,
+body,
+#wrapper,
+#root {
     margin: 0;
     height: 100%;
     padding: 0;
@@ -48,7 +51,7 @@ html, body, #wrapper, #root {
 .survey_header {
     border-radius: 25px 25px 0px 0px;
     height: 65px;
-    background-color: rgba(115,62,135,255);
+    background-color: rgba(115, 62, 135, 255);
     padding-top: 25px;
     padding-left: 25px;
     padding-right: 25px;
@@ -63,7 +66,7 @@ html, body, #wrapper, #root {
 }
 
 .surveyButton {
-    background-color: rgba(115,62,135,255);
+    background-color: rgba(115, 62, 135, 255);
     color: aliceblue;
     min-width: 80px;
     padding-top: 7px;
@@ -80,7 +83,7 @@ html, body, #wrapper, #root {
 
 .surveyButton:hover {
     color: #b59ac2;
-    background-color: rgba(115,62,135,255);
+    background-color: rgba(115, 62, 135, 255);
 }
 
 .field input {
@@ -122,12 +125,12 @@ html, body, #wrapper, #root {
 }
 
 .nameField input {
-    background-color: rgba(115,62,135,255);
+    background-color: rgba(115, 62, 135, 255);
     font-size: 35px;
     border-style: hidden;
     width: 100%;
     color: #e3e3e3;
-} 
+}
 
 .question-title {
     margin-top: 15px;
@@ -161,23 +164,23 @@ html, body, #wrapper, #root {
 }
 
 .new-answer {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 3px;
 }
 
-.new-answer-input{
+.new-answer-input {
     margin-right: 15px;
     border-bottom: 1px solid #c0c0c0;
-}   
+}
 
 .new-answer-input:hover {
     border-bottom: 1px dotted #c0c0c0;
 }
 
 .new-answer-input:focus {
-    border-bottom: 3px solid rgba(115,62,135,255);
+    border-bottom: 3px solid rgba(115, 62, 135, 255);
 }
 
 .question-type-selector {
@@ -186,4 +189,3 @@ html, body, #wrapper, #root {
     justify-content: space-between;
     margin-bottom: 10px;
 }
-
