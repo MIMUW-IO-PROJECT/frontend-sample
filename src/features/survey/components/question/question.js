@@ -26,34 +26,37 @@ export const Question = (props) => {
 
     return (
         <div className="q_margin">
-            <span
-                style={{
-                    display: "inline-block",
-                    marginBottom: "5px",
-                }}
-            >
-                <label
-                    style={{
-                        marginLeft: "40px",
-                        marginRight: "20px",
-                    }}
-                >
-                    Pytanie #{props.index + 1}
-                </label>
-                <select style={{ marginRight: "5px" }} onChange={handleChange}>
-                    {Object.values(types).map((type) => (
-                        <option key={type} value={type}>
-                            {type}
-                        </option>
-                    ))}
-                </select>
-                <button
-                    className="surveyButton"
-                    onClick={() => dispatch(deleteQuestion(props.index))}
-                >
-                    <strong>X</strong>
-                </button>
-            </span>
+            <div className="question-type-selector">
+                <div className="question-type-selector-label">
+                    <span
+                        style={{
+                            display: "inline-block",
+                        }}
+                    >
+                        <label 
+                        style={{
+                            "margin-right": "10px",
+                        }}>
+                        
+                            Pytanie {props.index + 1}
+                        </label>
+                        <select className="type-select" onChange={handleChange}>
+                            {Object.values(types).map((type) => (
+                                <option key={type} value={type}>
+                                    {type}
+                                </option>
+                            ))}
+                        </select>
+                        </span>
+                    </div>
+                    <button
+                        className="surveyButton"
+                        onClick={() => dispatch(deleteQuestion(props.index))}
+                    >
+                    X
+                    </button>
+                
+            </div>
 
             <QuestionNameField index={props.index} />
             {options.map((answer, index) => (

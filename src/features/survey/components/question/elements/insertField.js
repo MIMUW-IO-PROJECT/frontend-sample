@@ -47,21 +47,25 @@ export const InsertField = (props) => {
 
     return (
         <div className="field">
-            <input
-                id="textInput"
-                type="text"
-                placeholder="Enter text..."
-                value={insertValue}
-                onChange={(newValue) => setInsertValue(newValue.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        handleNewAnswer();
-                    }
-                }}
-            />
-            <button className="surveyButton" onClick={handleNewAnswer}>
-                &#10004;
-            </button>
+            <div className="new-answer">
+                <input
+                    id="textInput"
+                    type="text"
+                    className="new-answer-input"
+                    placeholder="Dodaj kolejną odpowiedź..."
+                    value={insertValue}
+                    onChange={(newValue) => setInsertValue(newValue.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleNewAnswer();
+                        }
+                    }}
+                />
+                <button className="surveyButton" onClick={handleNewAnswer}>
+                    Dodaj
+                </button>
+            </div>
+            
         </div>
     );
 };

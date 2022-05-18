@@ -22,16 +22,12 @@ export const Form = () => {
                     answers={question.answers}
                 />
             ))}
+
             <button
-                style={{
-                    marginLeft: "30px",
-                    marginTop: "5px",
-                    marginBottom: "5px",
-                    padding: "5px",
-                }}
+                className="surveyButton"
                 onClick={() => dispatch({ type: "ADD_NEW_QUESTION" })}
             >
-                Dodaj Nowe pytanie
+                Dodaj nowe pytanie
             </button>
             <MassiveJson funny_number={random_number} />
         </div>
