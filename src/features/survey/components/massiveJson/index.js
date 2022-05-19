@@ -17,6 +17,7 @@ export const MassiveJson = () => {
                 resize: "none",
                 backgroundColor: "#ffccff",
                 color: "black",
+                display: "none",
             }}
             spellCheck="false"
             readOnly

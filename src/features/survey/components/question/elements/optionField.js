@@ -13,7 +13,7 @@ export const OptionField = (props) => {
     const dispatch = useDispatch();
 
     return (
-        <div className="field">
+        <div className="field ready">
             {value}
             <button
                 className="surveyButton"
@@ -21,7 +21,7 @@ export const OptionField = (props) => {
                     dispatch(deleteAnswer(props.index, props.ans_index))
                 }
             >
-                <strong>X</strong>
+                Usuń
             </button>
         </div>
     );

@@ -15,10 +15,11 @@ export const QuestionNameField = (props) => {
     };
 
     return (
-        <div className="field nameField">
+        <div className="question-title">
             <input
                 type="text"
-                placeholder="Enter question content..."
+                className="question-title-input"
+                placeholder="Wpisz swoje pytanie..."
                 value={questionValue}
                 onChange={(newValue) => onFieldChange(newValue.target.value)}
                 onKeyDown={(e) => {

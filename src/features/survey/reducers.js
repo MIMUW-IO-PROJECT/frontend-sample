@@ -1,4 +1,15 @@
-const initialState = [];
+const initialState = [
+    {
+        type: "OPEN",
+        question: "",
+        answers: [],
+    },
+    {
+        type: "OPEN",
+        question: "",
+        answers: [],
+    },
+];
 
 export const questionsReducer = (state = initialState, action) => {
     let newState = [...state];
