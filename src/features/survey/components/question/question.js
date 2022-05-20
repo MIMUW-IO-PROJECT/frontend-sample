@@ -55,9 +55,13 @@ export const Question = (props) => {
                 </div>
                 <button
                     className="surveyButton"
-                    onClick={() => dispatch(deleteQuestion(props.index))}
+                    onClick={() => {
+                        dispatch(deleteQuestion(props.index));
+                        props.setDisability();
+                    }}
+                    disabled={props.shallBeDisabled}
                 >
-                    X
+                    X 
                 </button>
             </div>
 
@@ -66,7 +70,7 @@ export const Question = (props) => {
                 <OptionField
                     key={String(index)}
                     ans_index={String(index)}
-                    index={props.index}
+                    index={String(props.index)}
                     value={answer}
                 />
             ))}
@@ -79,4 +83,6 @@ Question.propTypes = {
     type: PropTypes.string,
     index: PropTypes.number,
     answers: PropTypes.array,
+    shallBeDisabled: PropTypes.bool,
+    setDisability: PropTypes.func,
 };
