@@ -4,6 +4,11 @@ const initialState = [
         question: "",
         answers: [],
     },
+    {
+        type: "OPEN",
+        question: "",
+        answers: [],
+    },
 ];
 
 export const questionsReducer = (state = initialState, action) => {
