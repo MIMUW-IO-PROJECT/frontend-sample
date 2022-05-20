@@ -9,14 +9,14 @@ export const AnswerPage = () => {
 
     const back = () => {
         navigate("/frontend-sample");
-    }
+    };
 
     return (
         <div className="survey">
             <div className="title field">Wypełnij ankietę</div>
             <NameField />
             <Form />
-            <button onClick={ back }>Wstecz</button>
+            <button onClick={back}>Wstecz</button>
         </div>
     );
 };

@@ -9,6 +9,7 @@ import {
 } from "../../actions";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+import { types } from "../../../../questionTypes";
 
 export const Question = (props) => {
     const dispatch = useDispatch();
@@ -25,49 +26,57 @@ export const Question = (props) => {
 
     return (
         <div className="q_margin">
-            <span
-                style={{
-                    display: "inline-block",
-                    marginBottom: "5px",
-                }}
-            >
-                <label
-                    style={{
-                        marginLeft: "40px",
-                        marginRight: "20px",
-                    }}
-                >
-                    Pytanie #{props.index}
-                </label>
-                <select style={{ marginRight: "5px" }} onChange={handleChange}>
-                    <option defaultValue={"OPEN"}>OPEN</option>
-                    <option value={"SINGLE"}>SINGLE</option>
-                    <option value={"MULTI"}>MULTI</option>
-                </select>
+            <div className="question-type-selector">
+                <div className="question-type-selector-label">
+                    <span
+                        style={{
+                            display: "inline-block",
+                        }}
+                    >
+                        <label
+                            style={{
+                                marginRight: "10px",
+                            }}
+                        >
+                            Pytanie {props.index + 1}
+                        </label>
+                        <select
+                            className="type-select"
+                            onChange={handleChange}
+                            value={props.type}
+                        >
+                            {Object.values(types).map((type) => (
+                                <option key={type} value={type}>
+                                    {type}
+                                </option>
+                            ))}
+                        </select>
+                    </span>
+                </div>
                 <button
                     className="surveyButton"
                     onClick={() => dispatch(deleteQuestion(props.index))}
                 >
-                    <strong>X</strong>
+                    X
                 </button>
-            </span>
+            </div>
 
-            <QuestionNameField index={props.index} />
+            <QuestionNameField index={String(props.index)} />
             {options.map((answer, index) => (
                 <OptionField
-                    key={index}
-                    ans_index={index}
+                    key={String(index)}
+                    ans_index={String(index)}
                     index={props.index}
                     value={answer}
                 />
             ))}
-            <InsertField type={props.type} index={props.index} />
+            <InsertField type={props.type} index={String(props.index)} />
         </div>
     );
 };
 
 Question.propTypes = {
     type: PropTypes.string,
-    index: PropTypes.string,
+    index: PropTypes.number,
     answers: PropTypes.array,
 };

@@ -15,7 +15,7 @@ export const Question = (props) => {
             >
                 Pytanie #{props.index}: {props.question}
             </span>
-            <QuestionInput 
+            <QuestionInput
                 setAnswer={props.setAnswer}
                 type={props.type}
                 answers={props.answers}

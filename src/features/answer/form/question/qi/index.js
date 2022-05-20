@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export const QuestionInput = (props) => {
-
     const setAnswer = props.setAnswer;
+
+    const handleSingleChange = (newValue) => {
+        setAnswer(parseInt(newValue.target.value));
+    };
+
+    // MULTI
+    const [checkboxState, setCheckboxState] = useState(
+        Array(props.answers.length).fill(false)
+    );
+
+    const handleCheckboxChange = (newValue) => {
+        console.log(checkboxState);
+        const changed = parseInt(newValue.target.value);
+        console.log(changed);
+        const updateCState = checkboxState.map((item, index) => {
+            console.log(index, changed, item, index === changed);
+            return index === changed ? !item : item;
+        });
+        setCheckboxState(updateCState);
+        console.log(updateCState);
+        const goodFormat = updateCState.map((item, index) =>
+            item ? index + 1 : null
+        );
+        console.log(goodFormat);
+        setAnswer(goodFormat.filter(Number).map((item) => item - 1));
+    };
 
     if (props.type === "OPEN") {
         return (
@@ -12,7 +37,7 @@ export const QuestionInput = (props) => {
                     id="textInput"
                     type="text"
                     placeholder="Enter text..."
-                    onChange={(newValue) => setAnswer(newValue)}
+                    onChange={(newValue) => setAnswer(newValue.target.value)}
                 />
             </div>
         );
@@ -27,6 +52,7 @@ export const QuestionInput = (props) => {
                         style={{
                             display: "flex",
                         }}
+                        onChange={handleSingleChange}
                     >
                         <label
                             style={{
@@ -40,7 +66,7 @@ export const QuestionInput = (props) => {
                             className=""
                             type="radio"
                             name="answer"
-                            value={answer}
+                            value={index}
                         />
                     </div>
                 ))}
@@ -56,6 +82,7 @@ export const QuestionInput = (props) => {
                     style={{
                         display: "flex",
                     }}
+                    onChange={handleCheckboxChange}
                 >
                     <label
                         style={{
@@ -69,7 +96,7 @@ export const QuestionInput = (props) => {
                         className=""
                         type="checkbox"
                         name="answer"
-                        value={answer}
+                        value={index}
                     />
                 </div>
             ))}

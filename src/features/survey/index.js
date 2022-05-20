@@ -13,10 +13,10 @@ export const Survey = () => {
 
     const postForm = async () => {
         axios
-            .post(backendUrl + createForm, { form })
+            .post(backendUrl + createForm, { ...form })
             .then((res) => {
                 console.log(res);
-                navigate("/display_link", { state: { formId: res.data } });
+                navigate("/display_link", { state: { form: res.data } });
             })
             .catch((err) => {
                 console.log(err);
@@ -29,16 +29,23 @@ export const Survey = () => {
     };
 
     return (
-        <div className="survey">
-            <div className="title field">Stwórz własną ankietę!</div>
-            <NameField />
-            <div className="title field">
-                Data końca ankiety w formacie RRRR-MM-DD.
+        <div className="survey_content">
+            <div className="survey_header">
+                <NameField />
             </div>
-            <EndDateField />
-            <Form />
-            <button onClick={postForm}>Dalej</button>
-            <button onClick={changeRoute}>Debug rozwiąż</button>
+            <div className="survey">
+                {/* <div className="title field">
+                    Data końca ankiety w formacie RRRR-MM-DD.
+                </div> */}
+                <EndDateField />
+                <Form />
+                <button className="surveyButton dalej" onClick={postForm}>
+                    Dalej
+                </button>
+                <button className="surveyButton dalej" onClick={changeRoute}>
+                    Debug rozwiąż
+                </button>
+            </div>
         </div>
     );
 };

@@ -12,15 +12,22 @@ export const EndDateField = () => {
         dispatch(setEndDateValue(newValue));
     };
 
+    const minDate = () => {
+        const today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+
+        return yyyy + "-" + mm + "-" + dd;
+    };
+
     return (
         <div className="field endDateField">
             <input
-                autoFocus
-                id="endDateInput"
-                type="text"
-                placeholder="Enter survey end date..."
+                type="date"
                 value={endDateValue}
                 onChange={(newValue) => onFieldChange(newValue.target.value)}
+                min={minDate()}
             />
         </div>
     );

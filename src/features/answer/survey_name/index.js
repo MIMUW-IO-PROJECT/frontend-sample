@@ -8,7 +8,7 @@ export const NameField = () => {
 
     return (
         <div className="field nameField">
-            <span>{ nameValue }</span>
+            <span>{nameValue}</span>
         </div>
     );
 };
