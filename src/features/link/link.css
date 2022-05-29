@@ -5,5 +5,43 @@
     margin: 10px;
     width: 100%;
     border-spacing: 0;
-    margin-bottom: 1em;
+}
+
+.survey_finished {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 25px 25px 25px 25px;
+    background-color: aliceblue;
+    min-height: 95%;
+    max-width: 1000px;
+    padding: 20px 20px 20px 20px;
+}
+
+.field_success {
+    font-family: "Helvetica", sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: large;
+}
+
+.link {
+    text-decoration: none;
+    background-color: #edd9ed;
+    color: rgba(77, 0, 75, 255);
+    padding: 3px;
+    width: 90%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.link_field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.link_copy_button {
+    width: 10%;
 }

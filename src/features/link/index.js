@@ -66,49 +66,51 @@ export const LinkPage = function () {
     ];
 
     return (
-        <div className="survey">
-            <div className="title field">Pomyślnie utworzono nową ankietę!</div>
-            <div className="field nameField">
-                <span autoFocus id="nameDisplay" type="text">
-                    {nameValue}
-                </span>
-            </div>
+        <div className="wrapper">
+            <div className="survey_finished">
+                <div className="field_success">Pomyślnie utworzono nową ankietę!</div>
+                <div className="field">
+                    <span autoFocus id="nameDisplay" type="text">
+                        {nameValue}
+                    </span>
+                </div>
 
-            <div className="title field">link do wypełniania</div>
-            <div className="field linkField">
-                <a href={fillLink} id="linkDisplay" type="text">
-                    {fillLink}
-                </a>
-                <button
-                    id="linkCopyButton"
-                    onClick={() => navigator.clipboard.writeText(fillLink)}
-                >
-                    kopiuj
-                </button>
-            </div>
+                <div className="field">Skopiuj link</div>
+                <div className="link_field">
+                    <a href={fillLink} className="link" id="link" type="text">
+                        {fillLink}
+                    </a>
+                    <button
+                        className="link_copy_button" id="linkCopyButton"
+                        onClick={() => navigator.clipboard.writeText(fillLink)}
+                    >
+                       kopiuj
+                    </button>
+                </div>
 
-            <div className="title field">
-                Data końca ankiety w formacie RRRR-MM-DD.
-            </div>
-            <div className="field endDateField">
-                <span autoFocus id="endDateInput" type="text">
-                    {endDate}
-                </span>
-            </div>
+                <div className="field">
+                    Ankieta wygaśnie:
+                </div>
+                <div className="field">
+                    <span autoFocus id="endDateInput" type="text">
+                        {endDate}
+                    </span>
+                </div>
 
-            <div className="stats_table">
-                <MaterialTable
-                    style={{ width: "80%" }}
-                    title="Statystyki ankiety"
-                    data={stats}
-                    columns={columns}
-                    options={{
-                        search: true,
-                        paging: false,
-                        filtering: true,
-                        exportButton: true,
-                    }}
-                />
+                <div className="stats_table">
+                    <MaterialTable
+                        style={{ width: "80%" }}
+                        title="Statystyki ankiety"
+                        data={stats}
+                        columns={columns}
+                        options={{
+                            search: true,
+                            paging: false,
+                            filtering: true,
+                            exportButton: true,
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );

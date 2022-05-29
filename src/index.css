@@ -57,14 +57,6 @@ body,
     padding-right: 25px;
 }
 
-.field endDateField {
-    display: none;
-}
-
-.endDateField {
-    display: none;
-}
-
 .surveyButton {
     background-color: rgba(115, 62, 135, 255);
     color: aliceblue;
@@ -143,13 +135,12 @@ body,
     height: 30px;
     font-size: 20px;
     border-style: hidden;
-    background-color: aliceblue;
+    background-color: aliceblue; 
     border-bottom: 1px solid #c0c0c0;
 }
 
 .question-title-input:focus {
     outline: none;
-    background-color: #e8e8e8;
 }
 
 .textarea {

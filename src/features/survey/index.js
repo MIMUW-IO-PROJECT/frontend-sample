@@ -30,9 +30,9 @@ export const Survey = () => {
                 <NameField />
             </div>
             <div className="survey">
-                {/* <div className="title field">
+                <div className="title field">
                     Data końca ankiety w formacie RRRR-MM-DD.
-                </div> */}
+                </div>
                 <EndDateField />
                 <Form />
                 <button className="surveyButton dalej" onClick={postForm}>
