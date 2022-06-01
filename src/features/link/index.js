@@ -81,10 +81,11 @@ export const LinkPage = function () {
                         {fillLink}
                     </a>
                     <button
-                        className="link_copy_button" id="linkCopyButton"
+                        className="link_copy_button"
+                        id="linkCopyButton"
                         onClick={() => navigator.clipboard.writeText(fillLink)}
                     >
-                       📋
+                        📋
                     </button>
                 </div>
 
@@ -102,9 +103,7 @@ export const LinkPage = function () {
                         // }}
                     />
                 </div>
-                <div className="field">
-                    Ankieta wygaśnie:
-                </div>
+                <div className="field">Ankieta wygaśnie:</div>
                 <div className="field">
                     <span autoFocus id="endDateInput" type="text">
                         {endDate}
