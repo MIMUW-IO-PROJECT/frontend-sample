@@ -68,14 +68,14 @@ export const LinkPage = function () {
     return (
         <div className="wrapper">
             <div className="survey_finished">
-                <div className="field_success">Pomyślnie utworzono nową ankietę!</div>
+                <div className="field_success">Twoja ankieta:</div>
                 <div className="field">
                     <span autoFocus id="nameDisplay" type="text">
                         {nameValue}
                     </span>
                 </div>
 
-                <div className="field">Skopiuj link</div>
+                <div className="field_link_name">Skopiuj link</div>
                 <div className="link_field">
                     <a href={fillLink} className="link" id="link" type="text">
                         {fillLink}
@@ -84,10 +84,24 @@ export const LinkPage = function () {
                         className="link_copy_button" id="linkCopyButton"
                         onClick={() => navigator.clipboard.writeText(fillLink)}
                     >
-                       kopiuj
+                       📋
                     </button>
                 </div>
 
+                <div className="stats_table">
+                    <MaterialTable
+                        style={{ width: "100%" }}
+                        title="Statystyki ankiety"
+                        data={stats}
+                        columns={columns}
+                        // options={{
+                        //     search: true,
+                        //     paging: false,
+                        //     filtering: true,
+                        //     exportButton: true,
+                        // }}
+                    />
+                </div>
                 <div className="field">
                     Ankieta wygaśnie:
                 </div>
@@ -95,21 +109,6 @@ export const LinkPage = function () {
                     <span autoFocus id="endDateInput" type="text">
                         {endDate}
                     </span>
-                </div>
-
-                <div className="stats_table">
-                    <MaterialTable
-                        style={{ width: "80%" }}
-                        title="Statystyki ankiety"
-                        data={stats}
-                        columns={columns}
-                        options={{
-                            search: true,
-                            paging: false,
-                            filtering: true,
-                            exportButton: true,
-                        }}
-                    />
                 </div>
             </div>
         </div>

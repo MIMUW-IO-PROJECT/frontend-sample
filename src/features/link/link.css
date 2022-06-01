@@ -2,7 +2,8 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    margin: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     width: 100%;
     border-spacing: 0;
 }
@@ -10,29 +11,25 @@
 .survey_finished {
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 25px 25px 25px 25px;
     background-color: aliceblue;
     min-height: 95%;
     max-width: 1000px;
-    padding: 20px 20px 20px 20px;
+    padding: 60px 40px 40px 40px;
 }
 
 .field_success {
     font-family: "Helvetica", sans-serif;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     margin-bottom: 15px;
-    font-size: large;
+    font-size: x-large;
 }
 
 .link {
     text-decoration: none;
     background-color: #edd9ed;
-    color: rgba(77, 0, 75, 255);
-    padding: 3px;
+    color: rgba(77, 0, 75, 100);
+    padding: 7px;
     width: 90%;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 2px 2px 2px 2px;
 }
 
 .link_field {
@@ -40,6 +37,11 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+
+.field_link_name {
+    margin-bottom: 10px;
+    font-size: larger;
 }
 
 .link_copy_button {
