@@ -3,13 +3,14 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setEndDateValue } from "./actions";
-import { endDateSelector } from "./selectors";
+import { endDateSelector, endTimeSelector } from "./selectors";
 
 export const EndDateField = () => {
     const endDateValue = useSelector(endDateSelector);
+    const endTimeValue = useSelector(endTimeSelector);
     const dispatch = useDispatch();
-    const onFieldChange = (newValue) => {
-        dispatch(setEndDateValue(newValue));
+    const onFieldChange = (newDateValue, newTimeValue) => {
+        dispatch(setEndDateValue(newDateValue + "T" + newTimeValue));
     };
 
     const minDate = () => {
@@ -26,8 +27,17 @@ export const EndDateField = () => {
             <input
                 type="date"
                 value={endDateValue}
-                onChange={(newValue) => onFieldChange(newValue.target.value)}
+                onChange={(newValue) =>
+                    onFieldChange(newValue.target.value, endTimeValue)
+                }
                 min={minDate()}
+            />
+            <input
+                type="time"
+                value={endTimeValue}
+                onChange={(newValue) =>
+                    onFieldChange(endDateValue, newValue.target.value)
+                }
             />
         </div>
     );

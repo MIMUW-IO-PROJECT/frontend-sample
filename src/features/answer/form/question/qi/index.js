@@ -52,7 +52,6 @@ export const QuestionInput = (props) => {
                         style={{
                             display: "flex",
                         }}
-                        onChange={handleSingleChange}
                     >
                         <label
                             style={{
@@ -63,10 +62,12 @@ export const QuestionInput = (props) => {
                             {answer}
                         </label>
                         <input
-                            className=""
+                            className={index}
                             type="radio"
-                            name="answer"
+                            name={props.index}
                             value={index}
+                            key={index}
+                            onChange={handleSingleChange}
                         />
                     </div>
                 ))}
@@ -108,4 +109,5 @@ QuestionInput.propTypes = {
     type: PropTypes.string,
     setAnswer: PropTypes.func,
     answers: PropTypes.array,
+    index: PropTypes.string,
 };

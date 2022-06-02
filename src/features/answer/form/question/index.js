@@ -19,6 +19,8 @@ export const Question = (props) => {
                 setAnswer={props.setAnswer}
                 type={props.type}
                 answers={props.answers}
+                key={props.index}
+                index={props.index}
             />
         </div>
     );

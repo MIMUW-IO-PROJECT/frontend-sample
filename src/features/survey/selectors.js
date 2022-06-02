@@ -8,3 +8,5 @@ export const questionNameSelector = (state, index) =>
 
 export const allAnswersSelector = (state, index) =>
     state.questions[index].answers;
+
+export const questionAmountSelector = (state) => state.questions.length;

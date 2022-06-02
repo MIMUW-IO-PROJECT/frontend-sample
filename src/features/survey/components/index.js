@@ -15,8 +15,8 @@ export const Form = () => {
 
     const handleNewQuestionClick = () => {
         dispatch({ type: "ADD_NEW_QUESTION" });
-                    setDisability(questions.length < 2);
-    }
+        setDisability(questions.length < 2);
+    };
 
     const refreshSet = () => setDisability(questions.length < 2);
 

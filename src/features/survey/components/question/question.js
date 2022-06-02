@@ -7,12 +7,15 @@ import {
     deleteAllAnswers,
     deleteQuestion,
 } from "../../actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { types } from "../../../../questionTypes";
+import { questionAmountSelector } from "../../selectors";
 
 export const Question = (props) => {
     const dispatch = useDispatch();
+
+    const questionsAmount = useSelector(questionAmountSelector);
 
     let options = [];
     if (props.type !== "OPEN") options = props.answers;
@@ -59,9 +62,9 @@ export const Question = (props) => {
                         dispatch(deleteQuestion(props.index));
                         props.setDisability();
                     }}
-                    disabled={props.shallBeDisabled}
+                    disabled={props.shallBeDisabled || questionsAmount <= 2}
                 >
-                    X 
+                    X
                 </button>
             </div>
 
