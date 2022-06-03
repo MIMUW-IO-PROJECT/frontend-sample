@@ -7,6 +7,11 @@ export const AJson = (props) => {
         answers: props.show,
     };
 
+    // To jest brzydki hack, ale nie umiem inaczej pobrać tych odpowiedzi,
+    // bo nie rozumiem, jak działa ta dziadowska zagrywka, co lepiej się
+    // w nią nie zagłębiać.
+    localStorage.setItem("answers", JSON.stringify(props.show));
+
     const toDisplay = JSON.stringify(curAns, null, 4);
     const newlines = toDisplay.split(/\r\n|\r|\n/).length;
     return (

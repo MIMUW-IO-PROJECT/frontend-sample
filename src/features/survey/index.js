@@ -24,9 +24,10 @@ export const Survey = () => {
             });
     };
 
-    const changeRoute = () => {
-        navigate("/survey_answer");
-    };
+    // debug rozwiąż z tego korzystał
+    // const changeRoute = () => {
+    //     navigate("/survey_answer");
+    // };
 
     return (
         <div className="survey_content">
@@ -37,11 +38,12 @@ export const Survey = () => {
                 <EndDateField />
                 <Form />
                 <button className="surveyButton dalej" onClick={postForm}>
-                    Dalej
+                    Utwórz ankietę
                 </button>
-                <button className="surveyButton dalej" onClick={changeRoute}>
+                {/* debug rozwiąż przestał działać ale chyba jest już nie potrzebny */}
+                {/* <button className="surveyButton dalej" onClick={changeRoute}>
                     Debug rozwiąż
-                </button>
+                </button> */}
             </div>
         </div>
     );

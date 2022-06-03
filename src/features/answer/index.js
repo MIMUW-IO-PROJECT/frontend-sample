@@ -26,7 +26,12 @@ export const AnswerPage = () => {
             .then((res) => {
                 // console.log(res);
                 // console.log(res.data);
-                dispatch(setNameValue(res.data?.formName ?? "unable to load survey name"));
+                dispatch(
+                    setNameValue(
+                        res.data?.formName ??
+                            "this survey has no name field because backend hadn't support it when it was created"
+                    )
+                );
                 dispatch(loadForm(res.data.questions));
             })
             .catch((err) => {
@@ -36,13 +41,20 @@ export const AnswerPage = () => {
     };
 
     const postAnswers = async () => {
+        // To jest brzydki hack, ale nie umiem inaczej pobrać tych odpowiedzi,
+        // bo nie rozumiem, jak działa ta dziadowska zagrywka, co lepiej się
+        // w nią nie zagłębiać.
+        const answers = JSON.parse(localStorage.getItem("answers"));
+        // console.log(answers);
+
         axios
             .post(backendUrl + submitAnswer, {
-                // todo: tutaj wstawić JSONa z odpowiedziami
-              })
+                formId,
+                answers,
+            })
             .then((res) => {
                 console.log(res);
-                alert("wysłało się!");
+                alert("Wysłało się!");
             })
             .catch((err) => {
                 console.log(err);
@@ -52,12 +64,15 @@ export const AnswerPage = () => {
 
     return (
         getSurvey(),
-        <div className="survey">
-            <div className="title field">Wypełnij ankietę</div>
-            <NameField />
-            <Form />
-            <button onClick={back}>Wstecz</button>
-            <button onClick={postAnswers}>Wyślij</button>
-        </div>
+        (
+            <div className="survey">
+                <div className="title field">Wypełnij ankietę</div>
+                <NameField />
+                <Form />
+                {/* wstecz raczej jest do usunięcia */}
+                <button onClick={back}>Wstecz</button>
+                <button onClick={postAnswers}>Wyślij</button>
+            </div>
+        )
     );
 };
