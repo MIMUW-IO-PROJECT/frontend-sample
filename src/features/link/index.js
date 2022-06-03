@@ -95,18 +95,12 @@ export const LinkPage = function () {
                         title="Statystyki ankiety"
                         data={stats}
                         columns={columns}
-                        // options={{
-                        //     search: true,
-                        //     paging: false,
-                        //     filtering: true,
-                        //     exportButton: true,
-                        // }}
                     />
                 </div>
                 <div className="field">Ankieta wygaśnie:</div>
                 <div className="field">
                     <span autoFocus id="endDateInput" type="text">
-                        {endDate}
+                        {`${new Date(endDate)}`}
                     </span>
                 </div>
             </div>
