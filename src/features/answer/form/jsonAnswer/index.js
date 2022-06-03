@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const AJson = (props) => {
     const curAns = {
         name: props.name,
-        answes: props.show,
+        answers: props.show,
     };
 
     const toDisplay = JSON.stringify(curAns, null, 4);

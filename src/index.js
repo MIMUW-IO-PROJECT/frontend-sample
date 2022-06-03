@@ -22,7 +22,7 @@ ReactDOM.render(
             <Routes>
                 <Route path="/frontend-sample" element={<Survey />} />
                 <Route path="/display_link" element={<LinkPage />} />
-                <Route path="/survey_answer" element={<AnswerPage />} />
+                <Route path="/survey_answer/:formId" element={<AnswerPage />} />
             </Routes>
         </Router>
     </Provider>,

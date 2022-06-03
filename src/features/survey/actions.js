@@ -31,3 +31,8 @@ export const deleteAllAnswers = (index) => ({
     type: "DELETE_ALL_ANSWERS",
     index,
 });
+
+export const loadForm = (questions) => ({
+    type: "LOAD_FORM",
+    questions,
+});
