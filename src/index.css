@@ -61,16 +61,6 @@ body,
     margin-bottom: 20px;
 }
 
-/* 
-.field endDateField {
-    display: none;
-}
-
-.endDateField {
-    display: none;
-}
-*/
-
 .surveyButton {
     background-color: rgba(115, 62, 135, 255);
     color: aliceblue;
@@ -155,7 +145,6 @@ body,
 
 .question-title-input:focus {
     outline: none;
-    background-color: #e8e8e8;
 }
 
 .textarea {
