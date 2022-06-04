@@ -10,6 +10,7 @@ import "./index.css";
 
 import { Survey } from "./features/survey";
 import { LinkPage } from "./features/link";
+import { ResultPage } from "./features/results";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Routes>
                 <Route path="/frontend-sample" element={<Survey />} />
                 <Route path="/display_link" element={<LinkPage />} />
+                <Route path="/result_page/:formId" element={<ResultPage />} />
             </Routes>
         </Router>
     </Provider>,
