@@ -8,9 +8,9 @@ function define(name, value) {
     });
 }
 
+define("OPEN", "OPEN");
 define("SINGLE", "SINGLE");
 define("MULTI", "MULTI");
-define("OPEN", "OPEN");
 
 Object.freeze(immutable);
 

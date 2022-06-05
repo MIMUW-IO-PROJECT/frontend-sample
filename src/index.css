@@ -57,6 +57,10 @@ body,
     padding-right: 25px;
 }
 
+.endDateField {
+    margin-bottom: 20px;
+}
+
 .surveyButton {
     background-color: rgba(115, 62, 135, 255);
     color: aliceblue;

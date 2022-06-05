@@ -7,25 +7,35 @@ import { Question } from "./question/question";
 export const Form = () => {
     const questions = useSelector(questionsSelector);
 
+    const [disability, setDisability] = React.useState(questions.length < 2);
+
     const dispatch = useDispatch();
 
     const random_number = Math.random();
+
+    const handleNewQuestionClick = () => {
+        dispatch({ type: "ADD_NEW_QUESTION" });
+        setDisability(questions.length < 2);
+    };
+
+    const refreshSet = () => setDisability(questions.length < 2);
 
     return (
         <div>
             {questions.map((question, index) => (
                 <Question
                     key={index}
-                    index={String(index)}
+                    index={index}
                     question={question.question}
                     type={question.type}
                     answers={question.answers}
+                    shallBeDisabled={disability}
+                    setDisability={refreshSet}
                 />
             ))}
-
             <button
                 className="surveyButton"
-                onClick={() => dispatch({ type: "ADD_NEW_QUESTION" })}
+                onClick={() => handleNewQuestionClick()}
             >
                 Dodaj nowe pytanie
             </button>

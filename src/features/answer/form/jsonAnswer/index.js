@@ -1,10 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
-export const MassiveJson = () => {
-    const curState = useSelector((state) => state);
+export const AJson = (props) => {
+    const curAns = {
+        name: props.name,
+        answers: props.show,
+    };
 
-    const toDisplay = JSON.stringify(curState, null, 4);
+    // To jest brzydki hack, ale nie umiem inaczej pobrać tych odpowiedzi,
+    // bo nie rozumiem, jak działa ta dziadowska zagrywka, co lepiej się
+    // w nią nie zagłębiać.
+    localStorage.setItem("answers", JSON.stringify(props.show));
+
+    const toDisplay = JSON.stringify(curAns, null, 4);
     const newlines = toDisplay.split(/\r\n|\r|\n/).length;
     return (
         <textarea
@@ -16,7 +24,6 @@ export const MassiveJson = () => {
                 resize: "none",
                 backgroundColor: "#ffccff",
                 color: "black",
-                // display: "none",
             }}
             spellCheck="false"
             readOnly
@@ -24,4 +31,9 @@ export const MassiveJson = () => {
             rows={newlines - 1}
         />
     );
+};
+
+AJson.propTypes = {
+    show: PropTypes.array,
+    name: PropTypes.string,
 };
