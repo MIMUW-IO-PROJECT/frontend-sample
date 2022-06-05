@@ -48,7 +48,6 @@ export const questionsReducer = (state = initialState, action) => {
             newState[action.index].answers.length = 0;
             return newState;
         case "LOAD_FORM":
-            console.log(action);
             return action.questions;
         default:
             return state;

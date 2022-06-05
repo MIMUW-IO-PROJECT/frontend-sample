@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export const MassiveJson = () => {
     const curState = useSelector((state) => state);
-    // console.log(curState);
 
     const toDisplay = JSON.stringify(curState, null, 4);
     const newlines = toDisplay.split(/\r\n|\r|\n/).length;
