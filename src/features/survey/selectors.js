@@ -13,7 +13,6 @@ export const questionAmountSelector = (state) => state.questions.length;
 
 export const isCorrectSelector = (state) => {
     return state.questions.every((question) => {
-        console.log(question);
         return question.type === "OPEN" || question.answers.length >= 2;
     });
 };

@@ -14,19 +14,14 @@ export const QuestionInput = (props) => {
     );
 
     const handleCheckboxChange = (newValue) => {
-        console.log(checkboxState);
         const changed = parseInt(newValue.target.value);
-        console.log(changed);
         const updateCState = checkboxState.map((item, index) => {
-            console.log(index, changed, item, index === changed);
             return index === changed ? !item : item;
         });
         setCheckboxState(updateCState);
-        console.log(updateCState);
         const goodFormat = updateCState.map((item, index) =>
             item ? index + 1 : null
         );
-        console.log(goodFormat);
         setAnswer(goodFormat.filter(Number).map((item) => item - 1));
     };
 

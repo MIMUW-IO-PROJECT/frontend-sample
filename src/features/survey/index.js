@@ -22,15 +22,16 @@ export const Survey = () => {
             console.log("Inproper form (You must fill at least two answers)");
             return;
         }
+
         axios
             .post(backendUrl + createForm, { ...form })
             .then((res) => {
-                console.log(res);
                 navigate("/display_link", { state: { form: res.data } });
             })
             .catch((err) => {
                 console.log(err);
                 console.log(err.response.data);
+                alert("Wystąpił błąd :(");
             });
     };
 
@@ -62,10 +63,6 @@ export const Survey = () => {
                 <button className="surveyButton dalej" onClick={postForm}>
                     Utwórz ankietę
                 </button>
-                {/* debug rozwiąż przestał działać ale chyba jest już nie potrzebny */}
-                {/* <button className="surveyButton dalej" onClick={changeRoute}>
-                    Debug rozwiąż
-                </button> */}
             </div>
         </div>
     );

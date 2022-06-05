@@ -24,8 +24,6 @@ export const AnswerPage = () => {
         axios
             .get(backendUrl + getForm + formId)
             .then((res) => {
-                // console.log(res);
-                // console.log(res.data);
                 dispatch(
                     setNameValue(
                         res.data?.formName ??
@@ -45,20 +43,19 @@ export const AnswerPage = () => {
         // bo nie rozumiem, jak działa ta dziadowska zagrywka, co lepiej się
         // w nią nie zagłębiać.
         const answers = JSON.parse(localStorage.getItem("answers"));
-        // console.log(answers);
 
         axios
             .post(backendUrl + submitAnswer, {
                 formId,
                 answers,
             })
-            .then((res) => {
-                console.log(res);
-                alert("Wysłało się!");
+            .then(() => {
+                alert("Odpowiedź zapisana!");
             })
             .catch((err) => {
                 console.log(err);
                 console.log(err.response.data);
+                alert("Wystąpił błąd :(");
             });
     };
 
