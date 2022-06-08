@@ -20,7 +20,6 @@ export const ResultPage = () => {
                 backendUrl + getForm + `/${formId}`
             );
             if (response.status == 200) {
-                // console.log(response.data);
                 setForm(response.data);
             } else {
                 console.log(
@@ -89,11 +88,16 @@ export const ResultPage = () => {
         return <div>{error}</div>;
     }
     return (
-        <div>
+        <div className="results-wrapper">
+            <div className="results-name">
+                <p>{form.formName}</p>
+            </div>
             {stats &&
                 stats.map((question, index) => {
                     return (
-                        <div key={index}>{renderSwitch(question, index)}</div>
+                        <div key={index} className="result-wrapper">
+                            {renderSwitch(question, index)}
+                        </div>
                     );
                 })}
         </div>
