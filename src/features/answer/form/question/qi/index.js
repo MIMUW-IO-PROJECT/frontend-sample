@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export const QuestionInput = (props) => {
@@ -13,11 +13,16 @@ export const QuestionInput = (props) => {
         Array(props.answers.length).fill(false)
     );
 
+    useEffect(() => {
+        setCheckboxState(Array(props.answers.length).fill(false));
+    }, [props.answers.length]);
+
     const handleCheckboxChange = (newValue) => {
         const changed = parseInt(newValue.target.value);
         const updateCState = checkboxState.map((item, index) => {
             return index === changed ? !item : item;
         });
+
         setCheckboxState(updateCState);
         const goodFormat = updateCState.map((item, index) =>
             item ? index + 1 : null
