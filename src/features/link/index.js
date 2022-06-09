@@ -10,7 +10,7 @@ export const LinkPage = function () {
     const formId = form._id;
 
     const generateLinkFillPage = () => {
-        return `${window.location.origin}/survey_answer/${formId}`;
+        return `${window.location.origin}/answer/${formId}`;
     };
 
     const generateFormStatistics = () => {

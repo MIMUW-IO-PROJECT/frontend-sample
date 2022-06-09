@@ -23,9 +23,7 @@ export const ResultPage = () => {
         }
 
         async function fetchForm() {
-            const response = await axios.get(
-                backendUrl + getForm + `/${formId}`
-            );
+            const response = await axios.get(backendUrl + getForm + formId);
             if (response.status == 200) {
                 setForm(response.data);
             } else {
@@ -39,9 +37,7 @@ export const ResultPage = () => {
         }
 
         async function fetchAnswers() {
-            const response = await axios.get(
-                backendUrl + getResults + `/${formId}`
-            );
+            const response = await axios.get(backendUrl + getResults + formId);
             if (response.status == 200) {
                 // console.log(response.data);
                 setAnswers(response.data);

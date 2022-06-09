@@ -21,10 +21,10 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Routes>
-                <Route path="/frontend-sample" element={<Survey />} />
-                <Route path="/display_link" element={<LinkPage />} />
-                <Route path="/result_page/:formId" element={<ResultPage />} />
-                <Route path="/survey_answer/:formId" element={<AnswerPage />} />
+                <Route path="/create-survey" element={<Survey />} />
+                <Route path="/survey-created" element={<LinkPage />} />
+                <Route path="/results/:formId" element={<ResultPage />} />
+                <Route path="/answer/:formId" element={<AnswerPage />} />
             </Routes>
         </Router>
     </Provider>,
