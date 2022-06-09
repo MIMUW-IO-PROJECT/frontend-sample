@@ -62,13 +62,24 @@ export const AnswerPage = () => {
     return (
         getSurvey(),
         (
-            <div className="survey">
-                <div className="title field">Wypełnij ankietę</div>
-                <NameField />
-                <Form />
-                {/* wstecz raczej jest do usunięcia */}
-                <button onClick={back}>Wstecz</button>
-                <button onClick={postAnswers}>Wyślij</button>
+            <div className="survey_content">
+                <div className="survey_header">
+                    <NameField />
+                </div>
+                <div className="survey">
+                    <div className="field_success">Wypełnij ankietę</div>
+                    <Form />
+                    {/* wstecz raczej jest do usunięcia */}
+                    <button className="surveyButton dalej" onClick={back}>
+                        Wstecz
+                    </button>
+                    <button
+                        className="surveyButton dalej"
+                        onClick={postAnswers}
+                    >
+                        Wyślij
+                    </button>
+                </div>
             </div>
         )
     );

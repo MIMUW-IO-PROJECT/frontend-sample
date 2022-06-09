@@ -4,17 +4,10 @@ import { QuestionInput } from "./qi";
 
 export const Question = (props) => {
     return (
-        <div className="q_margin">
-            <span
-                style={{
-                    display: "inline-block",
-                    marginBottom: "5px",
-                    marginLeft: "40px",
-                    marginRight: "20px",
-                }}
-            >
-                Pytanie #{props.index}: {props.question}
-            </span>
+        <div className="question-title">
+            <div className="question">
+                Pytanie {props.index}: {props.question}
+            </div>
             <QuestionInput
                 setAnswer={props.setAnswer}
                 type={props.type}

@@ -27,9 +27,10 @@ export const QuestionInput = (props) => {
 
     if (props.type === "OPEN") {
         return (
-            <div className="field">
+            <div className="question-title">
                 <input
                     id="textInput"
+                    className="question-title-input"
                     type="text"
                     placeholder="Enter text..."
                     onChange={(newValue) => setAnswer(newValue.target.value)}
@@ -42,22 +43,10 @@ export const QuestionInput = (props) => {
         return (
             <div className="field">
                 {props.answers.map((answer, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            display: "flex",
-                        }}
-                    >
-                        <label
-                            style={{
-                                marginLeft: "40px",
-                                marginRight: "20px",
-                            }}
-                        >
-                            {answer}
-                        </label>
+                    <div className="radio-answer" key={index}>
+                        <label className="radio-text">{answer}</label>
                         <input
-                            className={index}
+                            className="radio-button"
                             type="radio"
                             name={props.index}
                             value={index}
@@ -74,22 +63,13 @@ export const QuestionInput = (props) => {
         <div className="field">
             {props.answers.map((answer, index) => (
                 <div
+                    className="radio-answer"
                     key={index}
-                    style={{
-                        display: "flex",
-                    }}
                     onChange={handleCheckboxChange}
                 >
-                    <label
-                        style={{
-                            marginLeft: "40px",
-                            marginRight: "20px",
-                        }}
-                    >
-                        {answer}
-                    </label>
+                    <label className="radio-text">{answer}</label>
                     <input
-                        className=""
+                        className="radio-button"
                         type="checkbox"
                         name="answer"
                         value={index}

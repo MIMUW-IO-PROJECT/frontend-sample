@@ -46,6 +46,7 @@ body,
     padding-left: 25px;
     padding-right: 35px;
     padding-top: 55px;
+    padding-bottom: 40px;
 }
 
 .survey_header {
@@ -129,9 +130,9 @@ body,
 }
 
 .question-title {
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .question-title-input {
@@ -140,7 +141,7 @@ body,
     font-size: 20px;
     border-style: hidden;
     background-color: aliceblue;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid #b59ac2;
 }
 
 .question-title-input:focus {
@@ -155,7 +156,7 @@ body,
 }
 
 .q_margin {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 .new-answer {
@@ -183,4 +184,37 @@ body,
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+
+.name-text {
+    background-color: rgba(115, 62, 135, 255);
+    font-size: 35px;
+    border-style: hidden;
+    width: 100%;
+    color: #e3e3e3;
+}
+
+.question {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.radio-answer {
+    display: flex;
+    justify-content: space-between;
+    justify-items: space-between;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border-bottom: #b59ac2 1px dotted;
+    font-size: 15px;
+}
+
+.radio-button {
+    width: 5%;
+    align-self: left;
+}
+
+.radio-text {
+    width: 95%;
+    padding-bottom: 2px;
 }

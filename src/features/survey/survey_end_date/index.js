@@ -24,6 +24,7 @@ export const EndDateField = () => {
 
     return (
         <div className="field endDateField">
+            Podaj datę wygaśnięcia Twojej ankiety:
             <input
                 type="date"
                 value={endDateValue}
@@ -39,6 +40,7 @@ export const EndDateField = () => {
                     onFieldChange(endDateValue, newValue.target.value)
                 }
             />
+            <br />
         </div>
     );
 };
