@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { backendUrl, getForm, getResults } from "../../routes";
 import axios from "axios";
@@ -13,8 +13,15 @@ export const ResultPage = () => {
     const [form, setForm] = useState(null);
     const [answers, setAnswers] = useState(null);
     const [error, setError] = useState(null);
+    const dataFetched = useRef(false);
 
     useEffect(() => {
+        if (dataFetched.current) {
+            return;
+        } else {
+            dataFetched.current = true;
+        }
+
         async function fetchForm() {
             const response = await axios.get(
                 backendUrl + getForm + `/${formId}`
@@ -49,7 +56,8 @@ export const ResultPage = () => {
         }
         fetchForm();
         fetchAnswers();
-    }, [formId]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dataFetched.current]);
 
     const stats = combineFormWithAnswers(form, answers);
     console.log(stats);
@@ -90,7 +98,7 @@ export const ResultPage = () => {
     return (
         <div className="results-wrapper">
             <div className="results-name">
-                <p>{form.formName}</p>
+                <p>{form && form.formName}</p>
             </div>
             {stats &&
                 stats.map((question, index) => {
