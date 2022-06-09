@@ -1,20 +1,57 @@
 .charts-css {
-    /* height: 300px;
-    max-width: 500px; */
-    width: 50vw;
-    height: 30vh;
+    height: 15rem;
     margin: 0 auto;
 }
 
-.results-wrapper {
-    width: 100%;
-    height: 100%;
+.results-page {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.results {
+    max-width: 800px;
+    background-color: aliceblue;
+    width: -webkit-fill-available;
+    border-radius: 0 0 25px 25px;
+}
+
 .result-wrapper {
     margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.survey_header {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.survey-name {
+    color: aliceblue;
+    font-size: 2.5rem;
+    margin: auto;
+}
+
+.data {
+    margin: 5px;
+}
+
+.chart-question {
+    display: block !important;
+    margin-bottom: 20px !important;
+}
+
+.multi_results {
+    width: -webkit-fill-available;
+    margin: 0 50px;
 }

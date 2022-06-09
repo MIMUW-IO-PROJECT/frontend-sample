@@ -17,16 +17,17 @@ export const Single = (props) => {
         });
     }
     console.log(statsCombined);
+    const max = Math.max(...props.votes);
     return (
         <div className="multi_results">
             <table className="charts-css column show-labels data-spacing-10 label-spaceing-10">
-                <caption>{props.question}</caption>
+                <caption className="chart-question">{props.question}</caption>
                 <tbody>
                     {statsCombined.map((stat, index) => {
                         return (
                             <tr key={index}>
                                 <th scope="row">{stat.answer}</th>
-                                <td style={{ "--size": stat.size }}>
+                                <td style={{ "--size": stat.votes / max }}>
                                     <span className="data">{stat.votes}</span>
                                 </td>
                             </tr>

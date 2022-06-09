@@ -92,22 +92,26 @@ export const ResultPage = () => {
                 );
         }
     };
+
     if (error != null) {
         return <div>{error}</div>;
     }
+
     return (
-        <div className="results-wrapper">
-            <div className="results-name">
-                <p>{form && form.formName}</p>
+        <div className="results-page">
+            <div className="results-name survey_header">
+                <p className="survey-name">{form?.formName}</p>
             </div>
-            {stats &&
-                stats.map((question, index) => {
-                    return (
-                        <div key={index} className="result-wrapper">
-                            {renderSwitch(question, index)}
-                        </div>
-                    );
-                })}
+            <div className="results">
+                {stats &&
+                    stats.map((question, index) => {
+                        return (
+                            <div key={index} className="result-wrapper">
+                                {renderSwitch(question, index)}
+                            </div>
+                        );
+                    })}
+            </div>
         </div>
     );
 };
