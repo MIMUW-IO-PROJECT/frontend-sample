@@ -22,6 +22,9 @@ export const Form = () => {
         forceUpdate();
     };
 
+    const survey = "Ankieta: ";
+    document.title = survey + name;
+
     return (
         <div>
             {questions.map((question, index) => (
