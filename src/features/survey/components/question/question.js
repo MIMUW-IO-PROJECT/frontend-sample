@@ -7,12 +7,15 @@ import {
     deleteAllAnswers,
     deleteQuestion,
 } from "../../actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { types } from "../../../../questionTypes";
+import { questionAmountSelector } from "../../selectors";
 
 export const Question = (props) => {
     const dispatch = useDispatch();
+
+    const questionsAmount = useSelector(questionAmountSelector);
 
     let options = [];
     if (props.type !== "OPEN") options = props.answers;
@@ -35,12 +38,16 @@ export const Question = (props) => {
                     >
                         <label
                             style={{
-                                "margin-right": "10px",
+                                marginRight: "10px",
                             }}
                         >
                             Pytanie {props.index + 1}
                         </label>
-                        <select className="type-select" onChange={handleChange}>
+                        <select
+                            className="type-select"
+                            onChange={handleChange}
+                            value={props.type}
+                        >
                             {Object.values(types).map((type) => (
                                 <option key={type} value={type}>
                                     {type}
@@ -51,28 +58,34 @@ export const Question = (props) => {
                 </div>
                 <button
                     className="surveyButton"
-                    onClick={() => dispatch(deleteQuestion(props.index))}
+                    onClick={() => {
+                        dispatch(deleteQuestion(props.index));
+                        props.setDisability();
+                    }}
+                    disabled={props.shallBeDisabled || questionsAmount <= 2}
                 >
                     X
                 </button>
             </div>
 
-            <QuestionNameField index={props.index} />
+            <QuestionNameField index={String(props.index)} />
             {options.map((answer, index) => (
                 <OptionField
-                    key={index}
-                    ans_index={index}
-                    index={props.index}
+                    key={String(index)}
+                    ans_index={String(index)}
+                    index={String(props.index)}
                     value={answer}
                 />
             ))}
-            <InsertField type={props.type} index={props.index} />
+            <InsertField type={props.type} index={String(props.index)} />
         </div>
     );
 };
 
 Question.propTypes = {
     type: PropTypes.string,
-    index: PropTypes.string,
+    index: PropTypes.number,
     answers: PropTypes.array,
+    shallBeDisabled: PropTypes.bool,
+    setDisability: PropTypes.func,
 };

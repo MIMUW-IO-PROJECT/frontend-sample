@@ -47,6 +47,8 @@ export const questionsReducer = (state = initialState, action) => {
         case "DELETE_ALL_ANSWERS":
             newState[action.index].answers.length = 0;
             return newState;
+        case "LOAD_FORM":
+            return action.questions;
         default:
             return state;
     }

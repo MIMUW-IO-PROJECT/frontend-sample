@@ -65,6 +65,9 @@ export const LinkPage = function () {
         { title: "Wartość", field: "value" },
     ];
 
+    const survey = "Utworzono Ankietę: ";
+    document.title = survey + nameValue;
+
     return (
         <div className="wrapper">
             <div className="survey_finished">
