@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -8,9 +8,14 @@ import { nameSelector } from "./selectors";
 export const NameField = () => {
     const nameValue = useSelector(nameSelector);
     const dispatch = useDispatch();
+    const newSurvey = "Nowa Ankieta: ";
     const onFieldChange = (newValue) => {
         dispatch(setNameValue(newValue));
     };
+
+    useEffect(() => {
+        document.title = newSurvey + nameValue;
+    }, [nameValue]);
 
     return (
         <div className="field nameField">

@@ -40,6 +40,9 @@ export const Survey = () => {
     //     navigate("/survey_answer");
     // };
 
+    const newSurvey = "Nowa Ankieta: ";
+    document.title = newSurvey;
+
     return (
         <div className="survey_content">
             {doFlash && (
