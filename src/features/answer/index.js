@@ -14,11 +14,15 @@ export const AnswerPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const formId = location.href.split("/").pop();
+
     const back = () => {
-        navigate("/frontend-sample");
+        navigate("/create-survey");
     };
 
-    const formId = location.href.split("/").pop();
+    const show_results = () => {
+        navigate(`/results/${formId}`);
+    };
 
     const getSurvey = async () => {
         axios
@@ -70,14 +74,14 @@ export const AnswerPage = () => {
                     <div className="field_success">Wypełnij ankietę</div>
                     <Form />
                     {/* wstecz raczej jest do usunięcia */}
-                    <button className="surveyButton dalej" onClick={back}>
+                    <button className="surveyButton" onClick={back}>
                         Wstecz
                     </button>
-                    <button
-                        className="surveyButton dalej"
-                        onClick={postAnswers}
-                    >
+                    <button className="surveyButton" onClick={postAnswers}>
                         Wyślij
+                    </button>
+                    <button className="surveyButton" onClick={show_results}>
+                        Wyniki
                     </button>
                 </div>
             </div>

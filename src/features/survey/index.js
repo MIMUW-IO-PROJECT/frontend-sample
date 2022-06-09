@@ -26,7 +26,7 @@ export const Survey = () => {
         axios
             .post(backendUrl + createForm, { ...form })
             .then((res) => {
-                navigate("/display_link", { state: { form: res.data } });
+                navigate("/survey-created", { state: { form: res.data } });
             })
             .catch((err) => {
                 console.log(err);
@@ -34,11 +34,6 @@ export const Survey = () => {
                 alert("Wystąpił błąd :(");
             });
     };
-
-    // debug rozwiąż z tego korzystał
-    // const changeRoute = () => {
-    //     navigate("/survey_answer");
-    // };
 
     const newSurvey = "Nowa Ankieta: ";
     document.title = newSurvey;
